@@ -20,4 +20,22 @@ model Product {
   quantity  Int
   createdAt DateTime @default(now()) @db.Timestamptz(3)
   updatedAt DateTime @updatedAt
+  userId    String
+  createdBy User     @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id        String    @id @default(cuid())
+  name      String
+  email     String
+  password  String
+  userRole  role
+  createdAt DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime  @updatedAt
+  products  Product[]
+}
+
+enum role {
+  USER
+  ADMIN
 }
