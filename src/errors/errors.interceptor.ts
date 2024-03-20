@@ -20,6 +20,24 @@ export class ErrorsInterceptor implements NestInterceptor {
         console.log(Object.keys(err));
         console.log(err);
 
+        if (err.message.includes('not found')) {
+          throw new NotFoundException('Record not found');
+        }
+
+        if (err.message.includes('password must be at least')) {
+          throw new ConflictException(
+            'Password must be between 8 and 16 characters',
+          );
+        }
+
+        if (err.message.includes('name must be at least')) {
+          throw new ConflictException('Name must be at least 3 characters');
+        }
+
+        if (err.message.includes('Invalid email')) {
+          throw new ConflictException('Invalid email');
+        }
+
         switch (code) {
           case 'P2002':
             if (err.message.includes('name')) {
