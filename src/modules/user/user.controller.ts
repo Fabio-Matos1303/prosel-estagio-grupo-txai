@@ -11,32 +11,32 @@ import {
 import { UserService } from './user.service';
 import { Prisma } from '@prisma/client';
 
-@Controller('User')
+@Controller('user')
 export class UserController {
-  constructor(private readonly UserService: UserService) { }
+  constructor(private readonly userService: UserService) { }
 
   @Post()
   async create(@Body() data: Prisma.UserCreateInput) {
-    return await this.UserService.create(data);
+    return await this.userService.create(data);
   }
 
   @Get()
   findAll() {
-    return this.UserService.findAll();
+    return this.userService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.UserService.findOne(id);
+    return this.userService.findOne(id);
   }
 
   @Put(':id')
   update(@Param('id') id: string, @Body() data: Prisma.UserUpdateInput) {
-    return this.UserService.update(id, data);
+    return this.userService.update(id, data);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.UserService.remove(id);
+    return this.userService.remove(id);
   }
 }

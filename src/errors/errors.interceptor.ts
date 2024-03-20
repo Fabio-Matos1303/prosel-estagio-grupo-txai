@@ -18,7 +18,7 @@ export class ErrorsInterceptor implements NestInterceptor {
         const code = err.code;
         console.log('code', code);
         console.log(Object.keys(err));
-        console.log(err.name);
+        console.log(err);
 
         switch (code) {
           case 'P2002':

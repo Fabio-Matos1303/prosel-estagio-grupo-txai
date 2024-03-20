@@ -7,66 +7,66 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class ProductService {
   constructor(private readonly prisma: PrismaService) { }
   async create(data: Prisma.ProductCreateInput) {
-    const user = await this.prisma.product.create({
+    const product = await this.prisma.product.create({
       data
     });
 
-    return user;
+    return product;
   }
 
   async findAll() {
-    const user = await this.prisma.product.findMany();
+    const product = await this.prisma.product.findMany();
 
-    return user;
+    return product;
   }
 
   async findOne(id: string) {
-    const bookExists = await this.prisma.product.findUnique({
+    const productExists = await this.prisma.product.findUnique({
       where: {
         id
       }
     })
-    if (!bookExists) {
-      throw new Error('Book not found');
+    if (!productExists) {
+      throw new Error('Product not found');
     }
 
-    const user = await this.prisma.product.findUnique({
+    const product = await this.prisma.product.findUnique({
       where: {
         id
       }
     });
 
-    return user;
+    return product;
   }
 
   async update(id: string, data: Prisma.ProductUpdateInput) {
-    const bookExists = await this.prisma.product.findUnique({
+    const productExists = await this.prisma.product.findUnique({
       where: {
         id
       }
     })
-    if (!bookExists) {
-      throw new Error('Book not found');
+    if (!productExists) {
+      throw new Error('Product not found');
     }
 
-    const user = await this.prisma.product.update({
+    const product = await this.prisma.product.update({
       where: {
         id
       },
       data
     });
 
-    return user;
+    return product;
   }
 
   async remove(id: string) {
-    const bookExists = await this.prisma.product.findUnique({
+    const productExists = await this.prisma.product.findUnique({
       where: {
         id
       }
     })
-    if (!bookExists) {
-      throw new Error('Book not found');
+    if (!productExists) {
+      throw new Error('Product not found');
     }
 
     return await this.prisma.product.delete({

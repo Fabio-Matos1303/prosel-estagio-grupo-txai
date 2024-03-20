@@ -21,13 +21,13 @@ export class UserService {
   }
 
   async findOne(id: string) {
-    const bookExists = await this.prisma.user.findUnique({
+    const userExists = await this.prisma.user.findUnique({
       where: {
         id
       }
     })
-    if (!bookExists) {
-      throw new Error('Book not found');
+    if (!userExists) {
+      throw new Error('User not found');
     }
 
     const user = await this.prisma.user.findUnique({
@@ -40,13 +40,13 @@ export class UserService {
   }
 
   async update(id: string, data: Prisma.UserUpdateInput) {
-    const bookExists = await this.prisma.user.findUnique({
+    const userExists = await this.prisma.user.findUnique({
       where: {
         id
       }
     })
-    if (!bookExists) {
-      throw new Error('Book not found');
+    if (!userExists) {
+      throw new Error('User not found');
     }
 
     const user = await this.prisma.user.update({
@@ -60,13 +60,13 @@ export class UserService {
   }
 
   async remove(id: string) {
-    const bookExists = await this.prisma.user.findUnique({
+    const userExists = await this.prisma.user.findUnique({
       where: {
         id
       }
     })
-    if (!bookExists) {
-      throw new Error('Book not found');
+    if (!userExists) {
+      throw new Error('User not found');
     }
 
     return await this.prisma.user.delete({
