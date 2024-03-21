@@ -12,7 +12,7 @@ export class LoginDto {
   email: string;
 
   @IsNotEmpty({ message: 'password is required' })
-  @IsString({ message: 'password must be a string' })
+  @IsString({ message: 'password must have valid characters' })
   @MinLength(8, { message: 'password must be between 8 and 16 characters' })
   @MaxLength(16, { message: 'password must be between 8 and 16 characters' })
   password: string;
