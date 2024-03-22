@@ -1,4 +1,6 @@
-<img src='./assets/logo-grupo-txai.0b8f47c7.svg'>
+<p align="center"> 
+<img src='./assets/logo-grupo-txai.0b8f47c7.svg' href='https://www.grupotxai.com.br/' width='200'>
+</p>
 
 # Projeto NestJS com PrismaORM
 
