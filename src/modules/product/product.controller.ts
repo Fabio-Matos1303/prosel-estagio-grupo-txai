@@ -7,9 +7,14 @@ import {
   Param,
   Delete,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { Prisma } from '@prisma/client';
+import { AuthGuard } from '@nestjs/passport';
+import { Role } from 'src/enums/role.enum';
+import { Roles } from 'src/decorators/roles.decorator';
+import { RolesGuard } from 'src/guards/roles.guard';
 
 @Controller('product')
 export class ProductController {
@@ -20,9 +25,16 @@ export class ProductController {
     return await this.productService.create(data);
   }
 
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Get()
   findAll() {
     return this.productService.findAll();
+  }
+
+  @Get('user/:userId')
+  findProductsByUser(@Param('userId') userId: string) {
+    return this.productService.findProductsByUser(userId);
   }
 
   @Get(':id')

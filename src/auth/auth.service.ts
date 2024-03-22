@@ -27,7 +27,6 @@ export class AuthService {
       userRole: user.userRole,
     };
 
-    console.log(user);
 
     return sign(payload, process.env.JWT_SECRET, {
       expiresIn: '24h',

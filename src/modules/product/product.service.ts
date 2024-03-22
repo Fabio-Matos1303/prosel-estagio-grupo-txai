@@ -15,20 +15,15 @@ export class ProductService {
   }
 
   async findAll() {
+    const product = await this.prisma.product.findMany();
+    return product;
+  }
+
+  async findProductsByUser(userId: string) {
     const product = await this.prisma.product.findMany({
-      select: {
-        id: true,
-        name: true,
-        priceSale: true,
-        quantity: true,
-        createdAt: true,
-        updatedAt: true,
-        createdBy: {
-          select: {
-            name: true
-          }
-        }
-      },
+      where: {
+        userId
+      }
     });
 
     return product;
