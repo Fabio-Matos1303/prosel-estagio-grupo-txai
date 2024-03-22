@@ -6,7 +6,9 @@ import {
 } from '@nestjs/common';
 import { LoginService } from './login.service';
 import { LoginDto } from './dto/login.dto';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @Controller('login')
 export class LoginController {
   constructor(private readonly loginService: LoginService) { }
