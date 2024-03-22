@@ -15,7 +15,15 @@ export class ProductService {
   }
 
   async findAll() {
-    const product = await this.prisma.product.findMany();
+    const product = await this.prisma.product.findMany({
+      include: {
+        createdBy: {
+          select: {
+            name: true
+          }
+        }
+      }
+    });
     return product;
   }
 

@@ -32,21 +32,26 @@ export class ProductController {
     return this.productService.findAll();
   }
 
+  @UseGuards(AuthGuard('jwt'))
   @Get('user/:userId')
   findProductsByUser(@Param('userId') userId: string) {
     return this.productService.findProductsByUser(userId);
   }
 
+  @UseGuards(AuthGuard('jwt'))
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.productService.findOne(id);
   }
 
+  @UseGuards(AuthGuard('jwt'))
   @Put(':id')
   update(@Param('id') id: string, @Body() data: Prisma.ProductUpdateInput) {
     return this.productService.update(id, data);
   }
 
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.productService.remove(id);
