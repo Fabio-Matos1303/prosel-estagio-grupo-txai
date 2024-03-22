@@ -26,25 +26,29 @@ export class UserController {
     return await this.userService.create(createUserDto);
   }
 
-  @Roles(Role.USER)
+  @Roles(Role.ADMIN)
   @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Get()
   findAll() {
     return this.userService.findAll();
   }
 
-  @Roles(Role.USER)
+  @Roles(Role.ADMIN)
   @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Get(':id')
   findById(@Param('id') id: string) {
     return this.userService.findById(id);
   }
 
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Put(':id')
   update(@Param('id') id: string, @Body() updateUserDTO: UpdateUserDto) {
     return this.userService.update(id, updateUserDTO);
   }
 
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.userService.remove(id);
