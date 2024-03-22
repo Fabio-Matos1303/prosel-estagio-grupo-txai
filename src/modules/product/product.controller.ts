@@ -20,6 +20,7 @@ import { RolesGuard } from 'src/guards/roles.guard';
 export class ProductController {
   constructor(private readonly productService: ProductService) { }
 
+  @UseGuards(AuthGuard('jwt'))
   @Post()
   async create(@Body() data: Prisma.ProductCreateInput) {
     return await this.productService.create(data);
