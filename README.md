@@ -1,3 +1,5 @@
+<img src='./assets/logo-grupo-txai.0b8f47c7.svg'>
+
 # Projeto NestJS com PrismaORM
 
 Este projeto é um exemplo de aplicação construída com NestJS e PrismaORM, focada na criação de produtos e usuários, com sistema de login, autenticação e controle de acesso baseado em roles.
