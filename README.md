@@ -1,73 +1,54 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Projeto NestJS com PrismaORM
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este projeto é um exemplo de aplicação construída com NestJS e PrismaORM, focada na criação de produtos e usuários, com sistema de login, autenticação e controle de acesso baseado em roles.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Recursos Principais
 
-## Description
+- **Criação de Produtos e Usuários**: A aplicação permite a criação de produtos e usuários, facilitando a gestão de dados.
+- **Sistema de Login**: Implementa um sistema de login seguro, garantindo que apenas usuários autenticados possam acessar certas funcionalidades.
+- **Autenticação**: Utiliza JWT (JSON Web Tokens) para autenticação, proporcionando um fluxo de tokens de acesso eficiente e seguro.
+- **Controle de Acesso Baseado em Roles**: Permite a definição de roles para usuários, restringindo o acesso a rotas específicas com base nos níveis de autorização dos usuários.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Como Começar
 
-## Installation
+1. **Clone o Repositório**:
+git clone https://github.com/Fabio-Matos1303/prosel-grupo-txai.git
 
-```bash
-$ npm install
-```
+3. **Instale as Dependências e inicialize o banco de dados**:
+npm install
+docker compose up -d
 
-## Running the app
+4. **Configure as Variáveis de Ambiente**: Crie um arquivo `.env` na raiz do projeto e preencha com as informações necessárias, como DATABASE_URL e JWT_SECRET.
 
-```bash
-# development
-$ npm run start
+5. **Inicie o Servidor de Desenvolvimento**:
+npm run start:dev
 
-# watch mode
-$ npm run start:dev
 
-# production mode
-$ npm run start:prod
-```
+## Estrutura do Projeto
 
-## Test
+A aplicação segue uma arquitetura modular, com módulos separados para usuários, produtos e autenticação. Cada módulo possui seus próprios serviços, controladores e modelos, facilitando a manutenção e escalabilidade.
 
-```bash
-# unit tests
-$ npm run test
+### Módulos Principais
 
-# e2e tests
-$ npm run test:e2e
+- **Usuários**: Gerencia a criação, atualização e exclusão de usuários.
+- **Produtos**: Gerencia a criação, atualização e exclusão de produtos.
+- **Autenticação**: Lida com o login, autenticação e controle de acesso baseado em roles.
 
-# test coverage
-$ npm run test:cov
-```
+## Documentação
 
-## Support
+Para verificar todos os métodos disponíveis, assim como suas possíveis mensagens de retorno a requisições, acesse o Swagger do projeto através da seguinte URL:
+http://localhost:3000/api
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Informações importantes
 
-## Stay in touch
+Este projeto foi construído utilizado o PrismaORM e usa como banco de dados o PostgreSQL, a configuração necessária para setar o banco de dados já está pronta no arquivo `docker-compose.yaml`
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Contribuição
 
-## License
+Contribuições são bem-vindas! Para contribuir, por favor, siga os passos abaixo:
 
-Nest is [MIT licensed](LICENSE).
+1. Faça um fork do projeto.
+2. Crie uma nova branch para suas alterações: `git checkout -b my-feature`.
+3. Salve suas alterações e crie uma mensagem de commit contando o que você fez: `git commit -m "feature: My new feature"`.
+4. Envie suas alterações: `git push origin my-feature`.
+

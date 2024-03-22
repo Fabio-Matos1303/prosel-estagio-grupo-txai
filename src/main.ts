@@ -15,7 +15,7 @@ async function bootstrap() {
     .setTitle('Prova Backend - Grupo Txai')
     .setDescription('Sistema de controle de produtos e usuários')
     .setVersion('1.0')
-    .addTag('cats')
+    .addTag('prosel-txai')
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);

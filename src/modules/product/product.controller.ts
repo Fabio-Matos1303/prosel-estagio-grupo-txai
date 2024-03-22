@@ -26,10 +26,6 @@ export class ProductController {
   constructor(private readonly productService: ProductService) { }
 
   @ApiResponse({
-    status: 409,
-    description: 'Conflict - Um registro com esse nome já existe.',
-  })
-  @ApiResponse({
     status: 201,
     description: 'Criado.',
   })
