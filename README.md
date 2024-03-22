@@ -1,4 +1,4 @@
-<p align="center"> 
+<p align="justify"> 
 <img src='./assets/logo-grupo-txai.0b8f47c7.svg' href='https://www.grupotxai.com.br/' width='200' alt='Txai Logo'>
 <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="75" alt="Nest Logo" /></a>
 </p>
