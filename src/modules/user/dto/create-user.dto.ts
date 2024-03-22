@@ -19,5 +19,6 @@ export class CreateUserDto {
 
   @IsNotEmpty({ message: 'Role is required' })
   userRole: role;
+
   products: string[];
 }

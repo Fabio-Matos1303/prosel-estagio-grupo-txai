@@ -20,7 +20,14 @@ export class AuthService {
   }
 
   async login(user: any) {
-    const payload = { username: user.username, sub: user.userId };
+    const payload = {
+      id: user.id,
+      name: user.username,
+      email: user.email,
+      userRole: user.userRole,
+    };
+
+    console.log(user);
 
     return sign(payload, process.env.JWT_SECRET, {
       expiresIn: '24h',

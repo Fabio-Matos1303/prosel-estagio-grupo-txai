@@ -13,6 +13,9 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { Roles } from 'src/decorators/roles.decorator';
+import { RolesGuard } from 'src/guards/roles.guard';
+import { Role } from 'src/enums/role.enum';
 
 @Controller('user')
 export class UserController {
@@ -23,12 +26,15 @@ export class UserController {
     return await this.userService.create(createUserDto);
   }
 
+  @Roles(Role.USER)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Get()
-  @UseGuards(AuthGuard('jwt'))
   findAll() {
     return this.userService.findAll();
   }
 
+  @Roles(Role.USER)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Get(':id')
   findById(@Param('id') id: string) {
     return this.userService.findById(id);
